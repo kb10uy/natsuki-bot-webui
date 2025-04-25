@@ -1,2 +1,2 @@
 [assets]
-directory = "./svelte-kit/output"
+directory = "./.svelte-kit/output"
