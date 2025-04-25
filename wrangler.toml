@@ -1,2 +1,5 @@
+name = "natsuki-bot"
+compatibility_date = "2025-04-25"
+
 [assets]
 directory = "./.svelte-kit/output"
