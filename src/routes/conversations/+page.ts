@@ -1,12 +1,20 @@
 import { fetchApi } from '$lib';
-import type { ConversationsCountResponse } from '$lib/api-response';
+import {
+	type ConversationsLatestIdsResponseItem,
+	type ConversationsCountResponse
+} from '$lib/api-response';
 
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ fetch }) => {
-	const response = await fetchApi<ConversationsCountResponse>(fetch, '/conversations/count');
+	const countResponse = await fetchApi<ConversationsCountResponse>(fetch, '/conversations/count');
+	const latestResponse = await fetchApi<ConversationsLatestIdsResponseItem[]>(
+		fetch,
+		'/conversations/latest_ids'
+	);
 
 	return {
-		count: response.count
+		count: countResponse.count,
+		items: latestResponse
 	};
 };
